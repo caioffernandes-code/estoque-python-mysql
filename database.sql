@@ -31,4 +31,5 @@ VALUES (
 
 DROP TABLE nome_da_tabela;
 SELECT * FROM estoque.produtos;
+SELECT * FROM produtos;
 
