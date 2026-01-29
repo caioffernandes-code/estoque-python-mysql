@@ -1,0 +1,20 @@
+import mysql.connector
+
+mydb = mysql.connector.connect(
+
+    host= "localhost",
+    user= "root",
+    password= "c1a2i3o4",
+    database = "estoque"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT * FROM produtos WHERE marca = 'Apple'"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)
