@@ -33,4 +33,10 @@ DROP TABLE nome_da_tabela;
 SELECT * FROM estoque.produtos;
 SELECT * FROM produtos;
 SELECT * FROM produtos WHERE marca = 'Apple'"
+SELECT * FROM produtos;
+WHERE id_produto IN (10, 11, 12, 13, 14);
+
+DELETE FROM produtos
+WHERE id_produto IN (10, 11, 12, 13, 14);
+SELECT * FROM produtos ORDER BY preco;
 
