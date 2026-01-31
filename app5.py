@@ -17,7 +17,7 @@ mycursor.execute(sql)
 myresult = mycursor.fetchall()
 
 df = pd.DataFrame(myresult)
-df.columns = ['id_produto','marca', 'codigo_barras','modelo','categoria','preco','memoria_gb','ram_gb', 'camera_mp', 'bateria_mah','ano_lancamento','sistema']
+df.columns = ['id_produto','marca', 'modelo','codigo_barras','categoria','preco','memoria_gb','ram_gb', 'camera_mp', 'bateria_mah','ano_lancamento','sistema']
 print(df)
 
 df.to_csv("myresult.csv", index=False)
