@@ -1,0 +1,4 @@
+marca,modelo,codigo_barras, categoria, preco, memoria_gb, ram_gb, camera_mp, bateria_mah, ano_lancamento, sistema
+Xiaomi,Redmi 13C,13,Entrada,699.9,128,4,50,5000,2023,Android
+Samsung,Galaxy Z Flip 4,14,Premium,3999.9,256,8,12,3700,2022,Android
+Motorola,Moto E22,15,Entrada,599.9,64,4,16,4020,2022,Android
