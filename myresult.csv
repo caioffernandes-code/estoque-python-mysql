@@ -1,4 +1,4 @@
-id_produto,marca,codigo_barras,modelo,categoria,preco,memoria_gb,ram_gb,camera_mp,bateria_mah,ano_lancamento,sistema
+id_produto,marca,modelo,codigo_barras,categoria,preco,memoria_gb,ram_gb,camera_mp,bateria_mah,ano_lancamento,sistema
 2,Apple,iPhone 13,2,Premium,4299.90,128,6,12,3240,2021,iOS
 6,Apple,iPhone 11,6,Usado,2499.90,64,4,12,3110,2019,iOS
 7,Apple,iPhone 11,6,Usado,2499.90,64,4,12,3110,2019,iOS
