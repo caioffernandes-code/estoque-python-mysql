@@ -45,30 +45,30 @@ df = pd.DataFrame(myresult)
 df.columns = ['id_produto','marca', 'codigo_barras','modelo','categoria','preco','memoria_gb','ram_gb', 'camera_mp', 'bateria_mah','ano_lancamento','sistema']
 
 ## Geração de arquivos CSV a partir de um Banco de Dados
-df.to_csv("myresult.csv", index=False)
+- df.to_csv("myresult.csv", index=False)
 
 ## leitura de um arquivo csv
- df = pd.read_csv(inserir_csv)
+ - df = pd.read_csv(inserir_csv)
 
 ## Consultas SQL Utilizadas
 
 ### Selecionar todos os produtos:
-SELECT * FROM produtos;
+- SELECT * FROM produtos;
 
 ### Filtrar produtos por marca:
-SELECT * FROM produtos WHERE marca = 'Apple';
+- SELECT * FROM produtos WHERE marca = 'Apple';
 
 ### Ordenar produtos por preço:
-SELECT * FROM produtos ORDER BY preco DESC;
+- SELECT * FROM produtos ORDER BY preco DESC;
 
 ### O que é uma instância em python?
-conn = mysql.connector.connect(...)
+- conn = mysql.connector.connect(...)
 connect() cria uma instância de conexão
--conn é um objeto com métodos e atributos
+conn é um objeto com métodos e atributos
 
-cursor = conn.cursor()
+- cursor = conn.cursor()
 cursor também é uma instância
--criada a partir da conexão
+criada a partir da conexão
 
 ## List Comprehension
 
