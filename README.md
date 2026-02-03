@@ -52,16 +52,16 @@ df.to_csv("myresult.csv", index=False)
 
 ## Consultas SQL Utilizadas
 
-## Selecionar todos os produtos:
+### Selecionar todos os produtos:
 SELECT * FROM produtos;
 
-## Filtrar produtos por marca:
+### Filtrar produtos por marca:
 SELECT * FROM produtos WHERE marca = 'Apple';
 
-## Ordenar produtos por preço:
+### Ordenar produtos por preço:
 SELECT * FROM produtos ORDER BY preco DESC;
 
-## O que é uma instância em python?
+### O que é uma instância em python?
 conn = mysql.connector.connect(...)
 connect() cria uma instância de conexão
 -conn é um objeto com métodos e atributos
@@ -69,3 +69,32 @@ connect() cria uma instância de conexão
 cursor = conn.cursor()
 cursor também é uma instância
 -criada a partir da conexão
+
+## List Comprehension
+
+A compreensão de listas oferece uma sintaxe mais concisa quando você deseja criar uma nova lista com base nos valores de uma lista existente.
+
+### Exemplo:
+
+Com base em uma lista de frutas, você deseja uma nova lista contendo apenas as frutas que têm a letra "a" no nome.
+
+Sem a compreensão de listas, você terá que escrever uma forinstrução com um teste condicional dentro dela:
+
+### Exemplo:
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+print(newlist)
+
+## Com a List Comprehension, você pode fazer tudo isso com apenas uma linha de código:
+
+### Exemplo
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x for x in fruits if "a" in x]
+
+print(newlist)
