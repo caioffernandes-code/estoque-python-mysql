@@ -1,10 +1,37 @@
 # estoque-python-mysql
 
-Inserir várias linhas
-Para inserir várias linhas em uma tabela, use o executemany()método.
+## Bibliotecas Utilizadas
+- **pandas**: utilizada para leitura, manipulação e conversão de dados em DataFrame.
+- **mysql.connector**: utilizada para estabelecer conexão entre o Python e o banco de dados MySQL
 
-O segundo parâmetro do executemany()método é uma lista de tuplas, contendo os dados que você deseja inserir:
+## Conexão com o Banco de Dados
+A conexão com o banco de dados MySQL é realizada por meio da função
+`mysql.connector.connect()`, onde são informados o host, usuário, senha
+e nome do banco de dados.
 
+Exemplo:
+conn = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="******",
+    database="estoque"
+)
+Após a conexão, é criado um cursor responsável por executar comandos SQL.
+
+## Inserção de Dados no MySQL
+A inserção dos dados é feita utilizando o método `executemany()`,
+que permite inserir múltiplos registros de uma única vez.
+
+Os dados do DataFrame são convertidos em uma lista de tuplas para
+serem compatíveis com o comando SQL.
+dados = [tuple(linha) for linha in df.values]
+cursor.executemany(sql, dados)
+conn.commit()
+O método `commit()` confirma as alterações no banco de dados.
+
+## Inserção de linhas no Python para o SQL
+
+O segundo parâmetro do executemany() método é uma lista de tuplas, contendo os dados que você deseja inserir:
 Utilizamos o fetchall() método que busca todas as linhas da última instrução executada.
 myresult = mycursor.fetchall()
 
@@ -12,35 +39,33 @@ Se você estiver interessado apenas em uma linha, pode usar o fetchone()método.
 O fetchone()método retornará a primeira linha do resultado:
 myresult = mycursor.fetchone()
 
+## Criação de DataFrame com Pandas a partir de um Banco de Dados
 
-Criação de DataFrame com Pandas a partir de um Banco de Dados
 df = pd.DataFrame(myresult)
 df.columns = ['id_produto','marca', 'codigo_barras','modelo','categoria','preco','memoria_gb','ram_gb', 'camera_mp', 'bateria_mah','ano_lancamento','sistema']
 
-Geração de arquivos CSV a partir de um Banco de Dados
+## Geração de arquivos CSV a partir de um Banco de Dados
 df.to_csv("myresult.csv", index=False)
 
-Função responsável por inserir os dados no Banco de dados e conexão com o banco
-def inserir_csv_no_mysql(inserir_csv):
-    
-    conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="caio12345678",
-    database="estoque"
-    )
+## leitura de um arquivo csv
+ df = pd.read_csv(inserir_csv)
 
- Converte cada linha (que é uma lista/array) em tupla necessária para o banco de dados 
- dados = [tuple(linha) for linha in df.values]
+## Consultas SQL Utilizadas
 
-
-Consultas SQL Utilizadas
-
-Selecionar todos os produtos:
+## Selecionar todos os produtos:
 SELECT * FROM produtos;
 
-Filtrar produtos por marca:
+## Filtrar produtos por marca:
 SELECT * FROM produtos WHERE marca = 'Apple';
 
-Ordenar produtos por preço:
+## Ordenar produtos por preço:
 SELECT * FROM produtos ORDER BY preco DESC;
+
+## O que é uma instância em python?
+conn = mysql.connector.connect(...)
+connect() cria uma instância de conexão
+-conn é um objeto com métodos e atributos
+
+cursor = conn.cursor()
+cursor também é uma instância
+-criada a partir da conexão
