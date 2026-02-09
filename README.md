@@ -81,6 +81,7 @@ Com base em uma lista de frutas, você deseja uma nova lista contendo apenas as 
 Sem a compreensão de listas, você terá que escrever uma forinstrução com um teste condicional dentro dela:
 
 ### Exemplo:
+```python
 fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
 newlist = []
 
@@ -89,7 +90,7 @@ for x in fruits:
     newlist.append(x)
 
 print(newlist)
-
+```
 ## Com a List Comprehension, você pode fazer tudo isso com apenas uma linha de código:
 
 ### Exemplo
