@@ -41,6 +41,80 @@ O fetchone()método retornará a primeira linha do resultado:
 myresult = mycursor.fetchone()
 ```
 
+## Comando para dar UPDATE no Banco de Dados
+Você pode atualizar registros existentes em uma tabela usando a instrução "UPDATE":
+```python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'"
+
+mycursor.execute(sql)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record(s) affected")
+```
+
+## Comando de LIMIT no Banco de Dados
+Você pode limitar o número de registros retornados pela consulta usando a instrução "LIMIT":
+```python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM customers LIMIT 5")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+```
+## Comando de JOIN no Banco de Dados
+É possível combinar linhas de duas ou mais tabelas, com base em uma coluna relacionada entre elas, usando uma instrução JOIN.
+Considere que você tem uma tabela de "usuários" e uma tabela de "produtos":
+Essas duas tabelas podem ser combinadas usando fav os campos de usuários e de produtos id.
+```python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT \
+  users.name AS user, \
+  products.name AS favorite \
+  FROM users \
+  INNER JOIN products ON users.fav = products.id"
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+```
+
 ## Criação de DataFrame com Pandas a partir de um Banco de Dados
 ```python
 df = pd.DataFrame(myresult)
