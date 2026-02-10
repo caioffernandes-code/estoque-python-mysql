@@ -8,7 +8,7 @@
 A conexão com o banco de dados MySQL é realizada por meio da função
 `mysql.connector.connect()`, onde são informados o host, usuário, senha
 e nome do banco de dados.
-
+```python
 Exemplo:
 conn = mysql.connector.connect(
     host="localhost",
@@ -16,6 +16,7 @@ conn = mysql.connector.connect(
     password="******",
     database="estoque"
 )
+```
 Após a conexão, é criado um cursor responsável por executar comandos SQL.
 
 ## Inserção de Dados no MySQL
@@ -30,7 +31,7 @@ conn.commit()
 O método `commit()` confirma as alterações no banco de dados.
 
 ## Inserção de linhas no Python para o SQL
-
+```python
 O segundo parâmetro do executemany() método é uma lista de tuplas, contendo os dados que você deseja inserir:
 Utilizamos o fetchall() método que busca todas as linhas da última instrução executada.
 myresult = mycursor.fetchall()
@@ -38,30 +39,43 @@ myresult = mycursor.fetchall()
 Se você estiver interessado apenas em uma linha, pode usar o fetchone()método.
 O fetchone()método retornará a primeira linha do resultado:
 myresult = mycursor.fetchone()
+```
 
 ## Criação de DataFrame com Pandas a partir de um Banco de Dados
-
+```python
 df = pd.DataFrame(myresult)
 df.columns = ['id_produto','marca', 'codigo_barras','modelo','categoria','preco','memoria_gb','ram_gb', 'camera_mp', 'bateria_mah','ano_lancamento','sistema']
+```
 
 ## Geração de arquivos CSV a partir de um Banco de Dados
+```python
 - df.to_csv("myresult.csv", index=False)
+```
 
 ## leitura de um arquivo csv
+```python
  - df = pd.read_csv(inserir_csv)
+ ```
 
 ## Consultas SQL Utilizadas
 
 ### Selecionar todos os produtos:
+```python
 - SELECT * FROM produtos;
+```
 
 ### Filtrar produtos por marca:
+```python
 - SELECT * FROM produtos WHERE marca = 'Apple';
+```
 
 ### Ordenar produtos por preço:
+```python
 - SELECT * FROM produtos ORDER BY preco DESC;
+```
 
 ### O que é uma instância em python?
+```python
 - conn = mysql.connector.connect(...)
 connect() cria uma instância de conexão
 conn é um objeto com métodos e atributos
@@ -69,6 +83,7 @@ conn é um objeto com métodos e atributos
 - cursor = conn.cursor()
 cursor também é uma instância
 criada a partir da conexão
+```
 
 ## List Comprehension
 
@@ -94,8 +109,10 @@ print(newlist)
 ## Com a List Comprehension, você pode fazer tudo isso com apenas uma linha de código:
 
 ### Exemplo
+```python
 fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
 
 newlist = [x for x in fruits if "a" in x]
 
 print(newlist)
+```
